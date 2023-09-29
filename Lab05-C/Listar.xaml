@@ -1,0 +1,201 @@
+﻿<Window x:Class="Lab05_C.Listar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab05_C"
+        mc:Ignorable="d"
+        Title="Listar" Height="450" Width="1300">
+    <Grid>
+        <DataGrid Height="250" Width="1000" HorizontalAlignment="Left" Margin="12,21,0,0" 
+          Name="McDataGrid" VerticalAlignment="Top" RowHeight="30" ColumnWidth="100" 
+                  ColumnHeaderHeight="100" HeadersVisibility="Column"
+                  Background="LightGray" RowBackground="LightYellow" 
+                    AlternatingRowBackground="LightBlue"
+                  BorderBrush="Gray" BorderThickness="5" AutoGenerateColumns="False" SelectionChanged="McDataGrid_SelectionChanged"
+                  >
+
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn 
+                Header="IdProducto"
+                Width="70"
+                Binding="{Binding idproducto}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.EditingElementStyle>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Foreground" Value="Blue"/>
+                        </Style>
+                    </DataGridTextColumn.EditingElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn 
+                Header="NombreProducto"
+                Width="102"
+                Binding="{Binding nombreProducto}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.EditingElementStyle>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Foreground" Value="Blue"/>
+                        </Style>
+                    </DataGridTextColumn.EditingElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn 
+                Header="idProveedor"
+                Width="70"
+                Binding="{Binding idProveedor}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.EditingElementStyle>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Foreground" Value="Blue"/>
+                        </Style>
+                    </DataGridTextColumn.EditingElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn 
+                Header="idCategoria"
+                Width="70"
+                Binding="{Binding idCategoria}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.EditingElementStyle>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Foreground" Value="Blue"/>
+                        </Style>
+                    </DataGridTextColumn.EditingElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn 
+                Header="cantidadPorUnidad"
+                Width="70"
+                Binding="{Binding cantidadPorUnidad}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.EditingElementStyle>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Foreground" Value="Blue"/>
+                        </Style>
+                    </DataGridTextColumn.EditingElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn 
+                Header="precioUnidad"
+                Width="70"
+                Binding="{Binding precioUnidad}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.EditingElementStyle>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Foreground" Value="Blue"/>
+                        </Style>
+                    </DataGridTextColumn.EditingElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn 
+                Header="unidadesEnExistencia"
+                Width="70"
+                Binding="{Binding unidadesEnExistencia}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.EditingElementStyle>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Foreground" Value="Blue"/>
+                        </Style>
+                    </DataGridTextColumn.EditingElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn 
+                Header="unidadesEnPedido"
+                Width="120"
+                Binding="{Binding unidadesEnPedido}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.EditingElementStyle>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Foreground" Value="Blue"/>
+                        </Style>
+                    </DataGridTextColumn.EditingElementStyle>
+                </DataGridTextColumn>
+                <DataGridCheckBoxColumn 
+          Header="nivelNuevoPedido" 
+          Width="150"
+          Binding="{Binding nivelNuevoPedido}"
+          IsThreeState="True" />
+                <DataGridTemplateColumn Header="DOB">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding DOB}" Margin="4"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding DOB, Mode=TwoWay}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                </DataGridTemplateColumn>
+                <DataGridCheckBoxColumn 
+          Header="suspendido" 
+          Width="150"
+          Binding="{Binding suspendido}"
+          IsThreeState="True" />
+                <DataGridTemplateColumn Header="DOB">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding DOB}" Margin="4"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding DOB, Mode=TwoWay}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                </DataGridTemplateColumn>
+                <DataGridCheckBoxColumn 
+          Header="nivelNuevoPedido" 
+          Width="150"
+          Binding="{Binding nivelNuevoPedido}"
+          IsThreeState="True" />
+                <DataGridTemplateColumn Header="DOB">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding DOB}" Margin="4"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding DOB, Mode=TwoWay}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+            
+
+
+        </DataGrid>
+        <Button Content="Change Row Color" Height="23" HorizontalAlignment="Left" Margin="12,277,0,0"
+                Name="RowColorButton" VerticalAlignment="Top" Width="116" Click="RowColorButton_Click" />
+    </Grid>
+</Window>
